@@ -2,6 +2,7 @@ package dto;
 
 public class AccountDTO {
 	private String id, pass,name, email;
+	private int user_num;
 	
 	public AccountDTO() {
 	}
@@ -9,6 +10,10 @@ public class AccountDTO {
 	public AccountDTO(String id, String pass) {
 		this.id = id;
 		this.pass = pass;
+	}
+	public AccountDTO(int user_num, String name) {
+		this.user_num = user_num;
+		this.name = name;
 	}
 
 	public String getId() {
@@ -41,6 +46,14 @@ public class AccountDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public int getUser_num() {
+		return user_num;
+	}
+
+	public void setUser_num(int user_num) {
+		this.user_num = user_num;
 	}
 	
 }

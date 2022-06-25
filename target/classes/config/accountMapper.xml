@@ -7,22 +7,23 @@
 
 	<select id="all" resultType="dto.AccountDTO">
 		select * from account
-		order by num
+		order by user_num
 		desc
 	</select>
 
 	<select id="one" resultType="dto.AccountDTO" parameterType="int">
-		select * from account where num=#{num}
+		select * from account 
+		where user_num=#{user_num}
 	</select>
 
 	<select id="search" resultType="dto.AccountDTO" parameterType="dto.AccountDTO">
-		select * from mem
-		where num=#{num} and name=#{name}
+		select * from account
+		where user_num=#{user_num} and name=#{name}
 	</select>
 
 	<insert id="ins" parameterType="dto.AccountDTO">
-		insert into mem
-		values(mem_num_seq.nextval,#{name},#{age},#{loc})
+		insert into account
+		values(user_num_seq.nextval,#{id},#{pass},#{name},#{email})
 	</insert>
 	
 	<update id="upt" parameterType="dto.AccountDTO">
