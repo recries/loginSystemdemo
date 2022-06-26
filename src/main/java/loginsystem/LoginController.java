@@ -49,7 +49,12 @@ public class LoginController {
 		return dao.list(new AccountDTO(user_num,name));
 	}
 	
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	
+	
+	//{"id":"Test3","pass":"1234","name":"애옹스","email":"tes3@naver.com"}
+	//postman과 JASON을 이용한 계정 입력
+	//http://localhost:8090/myapp/account/list
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	public ResponseEntity<String> insertMethod(@RequestBody AccountDTO dto){
 		ResponseEntity<String> entity=null;
 		try {
@@ -60,4 +65,33 @@ public class LoginController {
 		}
 		return entity;
 	}
+	//{"user_num":3,"name":"김일환"}
+	//postman과 JASON을 이용한 계정 이름 수정
+	//http://localhost:8090/myapp/account/update
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateMethod(@RequestBody AccountDTO dto){
+		ResponseEntity<String> entity= null;
+		try {
+			dao.update(dto);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		}catch (Exception e) {
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+			}
+			return entity;
+	}
+	
+	//postman과 JASON을 이용한 계정 삭제
+//	http://localhost:8090/myapp/account/delete/{user_num}
+	@RequestMapping(value = "/delete/{user_num}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deletMethod(@PathVariable("user_num") int user_num){
+		ResponseEntity<String> entity=null;
+		try {
+			dao.delete(user_num);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		}catch (Exception e) {
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+			}
+			return entity;
+	}
+	
 }

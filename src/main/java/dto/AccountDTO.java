@@ -15,7 +15,7 @@ public class AccountDTO {
 		this.user_num = user_num;
 		this.name = name;
 	}
-
+	
 	public String getId() {
 		return id;
 	}

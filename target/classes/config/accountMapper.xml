@@ -23,16 +23,17 @@
 
 	<insert id="ins" parameterType="dto.AccountDTO">
 		insert into account
-		values(user_num_seq.nextval,#{id},#{pass},#{name},#{email})
+		values(#{id},#{pass},#{name},#{email},user_num_seq.nextval)
 	</insert>
 	
 	<update id="upt" parameterType="dto.AccountDTO">
-	 update mem set  name=#{name},age=#{age}, loc=#{loc}
-	  where num=#{num}
+	update account set  name=#{name} where user_num=#{user_num}
 	</update>
+	
+
 
     <delete id="del" parameterType="int">
-	  delete from mem where num=#{num}
+	  delete from account where user_num=#{user_num}
 	</delete>
 </mapper>   
 

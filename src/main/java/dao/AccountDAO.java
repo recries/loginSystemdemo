@@ -9,9 +9,8 @@ public interface AccountDAO {
 	public AccountDTO list(int num_user);
 	public AccountDTO list(String id);
 	public AccountDTO list(AccountDTO dto);
-	
 	public void register(AccountDTO dto);
 	public void update(AccountDTO dto);
-	public void delete(String id, String pass);
+	public void delete(int user_num);
 	
 }

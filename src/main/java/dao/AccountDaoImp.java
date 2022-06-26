@@ -37,14 +37,13 @@ public class AccountDaoImp implements AccountDAO {
 
 	@Override
 	public void update(AccountDTO dto) {
-		// TODO Auto-generated method stub
+		sqlSession.update("account.upt",dto);
 
 	}
 
 	@Override
-	public void delete(String id, String pass) {
-		// TODO Auto-generated method stub
-
+	public void delete(int user_num) {
+		sqlSession.delete("account.del", user_num);
 	}
 
 	@Override
