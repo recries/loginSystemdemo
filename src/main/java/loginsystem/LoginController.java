@@ -53,8 +53,8 @@ public class LoginController {
 	
 	//{"id":"Test3","pass":"1234","name":"애옹스","email":"tes3@naver.com"}
 	//postman과 JASON을 이용한 계정 입력
-	//http://localhost:8090/myapp/account/list
-	@RequestMapping(value = "/list", method = RequestMethod.POST)
+	//http://localhost:8090/myapp/account/insert
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public ResponseEntity<String> insertMethod(@RequestBody AccountDTO dto){
 		ResponseEntity<String> entity=null;
 		try {
